@@ -1,0 +1,103 @@
+<Entity name="Minä" tags="ui_use_raw_name">
+
+    <Base file="data/entities/base_enemy_basic.xml" >
+        <AnimalAIComponent
+            _enabled="1"
+            preferred_job="JobDefault"
+            creature_detection_range_x="400"
+            creature_detection_range_y="400"
+            food_material="blood"
+            needs_food="0"
+            sense_creatures="1"
+            can_fly="1"
+            attack_melee_damage_min="0.4"
+            attack_melee_damage_max="0.7"
+            attack_melee_max_distance="20"
+            attack_melee_enabled="1"
+            >
+        </AnimalAIComponent>
+
+        <DamageModelComponent
+            air_in_lungs="7"
+            air_in_lungs_max="7"
+            air_lack_of_damage="0.6"
+            air_needed="1"
+            falling_damages="0"
+            fire_damage_amount="0.2"
+            fire_probability_of_ignition="1"
+            invincibility_frames="60"
+            hp="4"
+            is_on_fire="0"
+            materials_damage="1"
+            materials_that_damage="acid,lava,blood_cold_vapour,blood_cold,poison,radioactive_gas,radioactive_gas_static,rock_static_radioactive,rock_static_poison,ice_radioactive_static,ice_radioactive_glass,ice_acid_static,ice_acid_glass,rock_static_cursed,magic_gas_hp_regeneration,gold_radioactive,gold_static_radioactive,rock_static_cursed_green,cursed_liquid,poo_gas"
+            materials_how_much_damage="0.005,0.003,0.0006,0.0009,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.005,-0.005,0.0002,0.0002,0.004,0.0005,0.00001"
+            ragdoll_filenames_file="data/ragdolls/player/filenames.txt"
+            ragdoll_offset_y="-5"
+            ragdollify_child_entity_sprites="1"
+            blood_spray_material="blood"
+            physics_objects_damage="0"
+            critical_damage_resistance="1"
+            ><damage_multipliers
+                explosion="0.35" >
+            </damage_multipliers>
+        </DamageModelComponent>
+
+        <SpriteComponent
+            _tags=""
+            alpha="1"
+            image_file="data/enemies_gfx/player.xml"
+            next_rect_animation=""
+            offset_x="6"
+            offset_y="14"
+            rect_animation="walk"
+            z_index="0.6"
+        ></SpriteComponent>
+
+        <PathFindingComponent
+            can_jump="1" >
+        </PathFindingComponent>
+
+        <PathFindingGridMarkerComponent
+            marker_work_flag="16" >
+        </PathFindingGridMarkerComponent>
+
+        <GenomeDataComponent
+            herd_id="apparition"
+            food_chain_rank="6"
+            is_predator="1" >
+        </GenomeDataComponent>
+
+        <CharacterPlatformingComponent
+            jump_velocity_y="-12"
+            swim_idle_buoyancy_coeff="1.0"
+            run_velocity="18"  >
+        </CharacterPlatformingComponent>
+
+        <CameraBoundComponent
+            max_count="30"
+            distance="160000">
+        </CameraBoundComponent>
+
+        <HitboxComponent
+          _enabled="1"
+          aabb_min_x="-4.5"
+          aabb_max_x="4.5"
+          aabb_min_y="-10"
+          aabb_max_y="3"
+          >
+        </HitboxComponent>
+
+        <CharacterDataComponent
+            collision_aabb_min_x="-4.0"
+            collision_aabb_max_x="3.5"
+            collision_aabb_min_y="-12"
+            collision_aabb_max_y="3"
+            mass="1.4"
+            >
+        </CharacterDataComponent>
+    </Base>
+
+    <ItemPickUpperComponent
+        is_in_npc="1">
+    </ItemPickUpperComponent>
+</Entity>
