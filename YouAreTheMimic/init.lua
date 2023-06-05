@@ -95,7 +95,7 @@ end
 
 function enable_flight(enable)
     local charplat_comp = EntityGetFirstComponentIncludingDisabled(player, "CharacterPlatformingComponent")
-    ComponentSetValue2(charplat_comp, "fly_model_player", not enable)
+    ComponentSetValue2(charplat_comp, "fly_speed_change_spd", enable and 0.25 or 0)
 end
 
 function remove_all_comps(entity_id, comp_type, tag)
