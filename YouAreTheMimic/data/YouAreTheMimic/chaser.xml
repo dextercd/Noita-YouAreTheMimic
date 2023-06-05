@@ -100,4 +100,14 @@
     <ItemPickUpperComponent
         is_in_npc="1">
     </ItemPickUpperComponent>
+
+    <HotspotComponent
+        _tags="cape_root"
+        sprite_hotspot_name="cape" >
+    </HotspotComponent>
+
+    <Entity name="cape">
+        <Base file="data/entities/verlet_chains/cape/cape.xml"></Base>
+    </Entity>
+
 </Entity>
