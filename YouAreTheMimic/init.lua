@@ -37,7 +37,7 @@ function OnWorldPreUpdate()
             end
         end
 
-        if frames_holding_movement_keys == 4 * 60 then
+        if frames_holding_movement_keys == 2.6 * 60 then
             wand_escape()
         end
     end
