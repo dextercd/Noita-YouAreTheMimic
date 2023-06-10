@@ -24,7 +24,10 @@ end
 
 function OnWorldPreUpdate()
     if not player or not EntityGetIsAlive(player) then
-        return
+        player = EntityGetWithTag("player_unit")[1]
+        if not EntityGetIsAlive(player) then
+            return
+        end
     end
 
     if not is_wand() then
