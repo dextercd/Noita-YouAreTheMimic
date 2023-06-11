@@ -52,9 +52,32 @@ function OnWorldPreUpdate()
     end
 end
 
+local function copy_component_enabled(to, from, component_type, tag)
+    local enabled = EntityGetFirstComponentIncludingDisabled(from, component_type, tag) ~= nil
+
+    local candidates = EntityGetComponentIncludingDisabled(to, component_type)
+    for _, comp in ipairs(candidates) do
+        if ComponentHasTag(comp, tag) then
+            EntitySetComponentIsEnabled(to, comp, enabled)
+        end
+    end
+end
+
 
 function wand_escape()
     set_is_wand()
+
+
+    local x, y = EntityGetTransform(player)
+    EntityApplyTransform(player, x, y - 7)
+    local chaser = EntityLoad("data/YouAreTheMimic/chaser.xml", x, y)
+
+    copy_component_enabled(chaser, player, "SpriteComponent", "player_amulet")
+    copy_component_enabled(chaser, player, "SpriteComponent", "player_amulet_gem")
+    copy_component_enabled(chaser, player, "SpriteComponent", "player_hat")
+    copy_component_enabled(chaser, player, "SpriteComponent", "player_hat2")
+    copy_component_enabled(chaser, player, "SpriteComponent", "player_hat2_shadow")
+
     remove_all_comps(player, "SpriteComponent")
     remove_all_comps(player, "SpriteStainsComponent")
     remove_all_comps(player, "ParticleEmitterComponent")
@@ -90,10 +113,6 @@ function wand_escape()
         z_index = 0.6,
     })
     EntityAddComponent2(player, "SpriteStainsComponent")
-
-    local x, y = EntityGetTransform(player)
-    EntityApplyTransform(player, x, y - 7)
-    EntityLoad("data/YouAreTheMimic/chaser.xml", x, y)
 end
 
 function enable_flight(enable)
