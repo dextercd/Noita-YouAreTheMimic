@@ -53,7 +53,7 @@ function OnWorldPreUpdate()
 end
 
 local function copy_component_enabled(to, from, component_type, tag)
-    local enabled = EntityGetFirstComponentIncludingDisabled(from, component_type, tag) ~= nil
+    local enabled = EntityGetFirstComponent(from, component_type, tag) ~= nil
 
     local candidates = EntityGetComponentIncludingDisabled(to, component_type)
     for _, comp in ipairs(candidates) do
